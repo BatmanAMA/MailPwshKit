@@ -1,16 +1,14 @@
-﻿using System;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
-using MailKit.Net.Smtp;
+﻿using MailKit.Net.Smtp;
 using MailKit.Security;
-using MailKit;
 using MimeKit;
 using MimeKit.Text;
-using System.Text.RegularExpressions;
-using System.Text;
-using System.Web;
+using System;
 using System.IO;
+using System.Management.Automation;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
 
 namespace mailpwshkit
 {
@@ -122,39 +120,44 @@ namespace mailpwshkit
                             address));
                 }
             }
-            foreach (String address in Cc)
+            if (!(Cc is null))
             {
-                MailboxAddress cc_mb = new MailboxAddress("");
-                if (MailboxAddress.TryParse(address, out cc_mb))
+                foreach (String address in Cc)
                 {
-                    message.Cc.Add(cc_mb);
-                }
-                else
-                {
-                    this.WriteError(
-                        new ErrorRecord(
-                            new Exception(String.Format("Could not parse {0}", address)),
-                            "AddressParseFailure",
-                            ErrorCategory.ParserError,
-                            address));
+                    MailboxAddress cc_mb = new MailboxAddress("");
+                    if (MailboxAddress.TryParse(address, out cc_mb))
+                    {
+                        message.Cc.Add(cc_mb);
+                    }
+                    else
+                    {
+                        this.WriteError(
+                            new ErrorRecord(
+                                new Exception(String.Format("Could not parse {0}", address)),
+                                "AddressParseFailure",
+                                ErrorCategory.ParserError,
+                                address));
+                    }
                 }
             }
-
-            foreach (String address in Bcc)
+            if (!(Bcc is null))
             {
-                MailboxAddress bcc_mb = new MailboxAddress("");
-                if (MailboxAddress.TryParse(address, out bcc_mb))
+                foreach (String address in Bcc)
                 {
-                    message.Bcc.Add(bcc_mb);
-                }
-                else
-                {
-                    this.WriteError(
-                        new ErrorRecord(
-                            new Exception(String.Format("Could not parse {0}", address)),
-                            "AddressParseFailure",
-                            ErrorCategory.ParserError,
-                            address));
+                    MailboxAddress bcc_mb = new MailboxAddress("");
+                    if (MailboxAddress.TryParse(address, out bcc_mb))
+                    {
+                        message.Bcc.Add(bcc_mb);
+                    }
+                    else
+                    {
+                        this.WriteError(
+                            new ErrorRecord(
+                                new Exception(String.Format("Could not parse {0}", address)),
+                                "AddressParseFailure",
+                                ErrorCategory.ParserError,
+                                address));
+                    }
                 }
             }
 
@@ -224,7 +227,7 @@ namespace mailpwshkit
                     }
                     
                 }
-
+                
                 client.Send(message);
                 client.Disconnect(true);
             }

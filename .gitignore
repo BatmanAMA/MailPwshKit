@@ -1,3 +1,6 @@
-﻿.vs/*
+﻿.vs
 bin
 obj
+mailpwshkit/*
+pkg
+*.zip

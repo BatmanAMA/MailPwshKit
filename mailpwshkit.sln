@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mailpwshkit", "mailpwshkit.csproj", "{B70216F8-7396-42C9-B86D-B2845B57F3EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B70216F8-7396-42C9-B86D-B2845B57F3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70216F8-7396-42C9-B86D-B2845B57F3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70216F8-7396-42C9-B86D-B2845B57F3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70216F8-7396-42C9-B86D-B2845B57F3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEBA1C41-C9D9-433C-A16E-4FE37127DCA4}
+	EndGlobalSection
+EndGlobal
